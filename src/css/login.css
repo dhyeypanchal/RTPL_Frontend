@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bungee+Spice&display=swap');
+
+.login{
+    font-family: 'Anton', sans-serif;
+    /* background: rgb(142, 38, 26); */
+    background: linear-gradient(270deg, rgba(142, 38, 26, 1) 0%, rgba(249, 122, 19, 1) 75%);
+    /* -webkit-background-clip: text; */
+    background-clip: text;
+    color: transparent;
+}
+
+.submit{
+    background: rgb(142, 38, 26)!important;
+    background: linear-gradient(270deg, rgba(142, 38, 26, 1) 0%, rgba(249, 122, 19, 1) 75%)!important;
+}
+
+.submit:hover{
+    background: rgb(255, 141, 128) !important;
+        background: linear-gradient(270deg, rgba(249, 122, 19, 1) 0%, rgba(142, 38, 26, 1) 75%) !important;
+}
+
+@media only screen and (max-width:760px) {
+    .responsive{
+        flex-direction: column!important;
+    }
+    .resmargin{
+        margin-bottom: 3rem;
+    }
+    .reswidth{
+        width: 80%!important;
+    }
+}
+
+@media only screen and (max-width:621px) {
+    .login{
+        font-size: 2.5rem!important;
+    }
+}
+@media only screen and (max-width:444px) {
+    .login{
+        font-size: 2rem!important;
+    }
+}
+@media only screen and (max-width:362px) {
+    .reslogin{
+        width:100%!important;
+    }
+}

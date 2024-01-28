@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+
+@media only screen and (max-width: 1000px) {
+    .hide {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 862px) {
+    .hideicon {
+        margin-left: 0 !important;
+    }
+}
+
+/* this is for icon set */
+@media only screen and (max-width: 326px) {
+    .responsivemargin {
+        margin-left: 3.8rem !important;
+    }
+}
+
+/* for scrolling the side navbar */
+.scrollnav::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollnav {
+    overflow-y: scroll;
+    height: 91vh;
+}
+
+.bgdropdown{
+    background-color: white;
+}
+
+/* for dropdown items */
+.dropactive{
+    border-right: 5px solid rgb(249, 172, 19);
+    margin-left: 5px;
+    background-color: rgb(234, 226, 217);
+}
+
+.organization{
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* for apply box-shadow property in the cards */
+.boxshadow {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 3px 8px;
+}
+
+
+.uppernav {
+    box-shadow: 7px 2px 8px rgba(109, 106, 106, 0.3);
+
+}
+
+.sidenav {
+    position: relative;
+    z-index: 1;
+    box-shadow: 2px 8px 8px rgba(109,
+            106,
+            106,
+            0.3);
+}
+
+
+/* for the active navbar */
+.active {
+    background-color: #ECEDF0;
+    border-right: 5px solid #4460EF;
+}

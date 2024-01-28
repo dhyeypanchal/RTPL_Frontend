@@ -1,0 +1,103 @@
+.add-user-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    /* Open from the right side */
+    width: 400px;
+    /* Adjust the width as needed */
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
+    /* Add a box shadow to the left side */
+    z-index: 99;
+    transform: translateX(100%);
+    /* Initially, move the drawer out of the screen */
+    transition: transform 0.3s ease;
+}
+
+.add-user-drawer.open {
+    transform: translateX(0);
+    /* Move the drawer in when it's open */
+}
+
+.drawer-content {
+    height: 100%;
+    /* Take full height */
+    padding: 20px;
+    border-radius: 0 5px 5px 0;
+    /* Add border radius only on the left side */
+    overflow-y: auto;
+    /* Add scrollbar if the content exceeds the height */
+}
+
+.drawer-content h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.drawer-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.drawer-content label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.drawer-content input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.drawer-content button {
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.drawer-content button[type="submit"] {
+    background-color: #21AF77;
+    color: #fff;
+}
+
+.drawer-content button[type="button"] {
+    background-color: #002D44;
+    margin-right: 10px;
+    color: #fff;
+}
+
+.formBtn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Media Query for Tablets and Smaller Screens */
+@media (max-width: 768px) {
+    .add-user-drawer {
+        width: 100%;
+        /* Take full width on smaller screens */
+        border-radius: 0;
+        /* Remove border radius */
+    }
+
+    .drawer-content {
+        padding: 10px;
+        /* Reduce padding for smaller screens */
+    }
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+    .add-user-drawer {
+        width: 100%;
+        /* Take full width on mobile devices */
+    }
+}

@@ -1,0 +1,95 @@
+*{
+    --tw-backdrop-blur: blur(4px)!important;
+    --tw-bg-opacity: 0.08!important;
+
+}
+@media only screen and (max-width: 340px) {
+    .removepadding {
+        padding: 0.5rem !important
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    .middleatmobile {
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    .mobilenone {
+        display: none
+    }
+}
+
+.userDetails {
+    margin-top: 20px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 0 0.5px 0.5px rgb(214, 214, 214);
+    /* border: 1px solid #7166F9; */
+    border: 1px solid #002D44;
+    background-color: #FFF;
+}
+
+.fDGHQd {
+    min-height: 0px !important;
+}
+
+.datatable {
+    min-width: 100% !important;
+}
+
+
+.exportContainer {
+    position: relative;
+    width: 100%;
+}
+
+.exportBoxes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.addBtn {
+    outline: none;
+    border: none;
+    background-color: #002D44;
+    color: #EDE7FB;
+    height: 35px;
+    cursor: pointer;
+    padding: 0.2rem;
+    font-size: 80%;
+    /* box-shadow: 0 0 4px rgb(74, 74, 74); */
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+.addBtn:hover {
+    background-color: #003f5f;
+}
+
+
+/* hide scrollbar */
+.scrolldatatable::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+/* for the visitors page */
+.cardmodal{
+    backdrop-filter: var(--tw-backdrop-blur)!important;
+    background-color: rgb(0 0 0 / var(--tw-bg-opacity))!important;
+    height: 92vh!important;
+}
+
+.cardmodalForIndividual{
+    backdrop-filter: var(--tw-backdrop-blur) !important;
+    background-color: rgb(0 0 0 / var(--tw-bg-opacity)) !important;
+    height: 100vh !important;
+}
