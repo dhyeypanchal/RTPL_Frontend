@@ -14,6 +14,8 @@ import { useUserInfo } from "../context/users";
 import '../css/users.css'
 import Breadcrumb from "./Breadcrumb";
 import instance from "../utils/axios";
+import { GrNext } from "react-icons/gr";
+import { IoMdClose } from "react-icons/io";
 
 const VisitorReg = () => {
     const { toggle } = useUserInfo()
@@ -87,6 +89,8 @@ const VisitorReg = () => {
         vPhotoID: [],
         vVisitorID: []
     });
+
+    const button = `w-fit px-5 py-2`;
 
 
     // for Company
@@ -548,6 +552,8 @@ const VisitorReg = () => {
         vVisitorID: []
     };
 
+    
+
     // for the Company
     const inputStyle = {
         width: '100%',
@@ -561,7 +567,6 @@ const VisitorReg = () => {
     // for the Individual
     const inputStyleForIndividual = {
         width: '100%',
-        padding: '0.01rem',
         border: '1px solid black',
         borderRadius: '0.375rem',
         boxShadow: '0 1px 2px rgba(0, 0, 0, 0.05)',
@@ -584,7 +589,7 @@ const VisitorReg = () => {
     }, [])
 
 
-    const [selectfield, setSelect] = useState("")
+    const [selectfield, setSelect] = useState("Individual")
 
     const handleSelectVisitor = (value) => {
 
@@ -658,10 +663,10 @@ const VisitorReg = () => {
             <div className="px-5 py-4 removepadding">
                 <Breadcrumb />
             </div>
-            <div className="max-w-lg mx-auto p-4 bg-white rounded-lg">
+            <div className="max-w-screen-md mx-auto p-4 bg-white rounded-lg">
                 {/* <img src="/assets/images/logo.png" width="40%" alt="Logo" className="mx-auto" /> */}
                 <h1 className="text-center mb-6 text-2xl font-bold">Visitor Registration Form</h1>
-                {(selectfield == "") ? <div className="my-5 flex items-center">
+                {/* {(selectfield == "") ? <div className="my-5 flex items-center">
                     <button
                         className="w-full mb-3 py-2 px-4 text-white rounded-l-md hover:bg-gray-700 focus:outline-none focus:ring focus:ring-pink-200" onClick={() => handleSelectVisitor("Individual")} style={{ backgroundColor: "black" }}
                     >
@@ -673,7 +678,20 @@ const VisitorReg = () => {
                     >
                         Company
                     </button>
-                </div> : ""}
+                </div> : ""} */}
+
+                <div className="buttons text-center">
+                    <button
+                        className={`bg-white  py-2 px-5 m-2 md:m-4 hover:text-black hover:border-2 hover:border-black duration-400 ${selectfield === 'Individual' ? 'text-black border-2 border-black' : 'text-gray-800 border-2 border-transparent'}  `}
+                        onClick={() => handleSelectVisitor("Individual")}>
+                        Individual
+                    </button>
+                    <button
+                        className={`bg-white py-2 px-5 m-2 md:m-4 hover:text-black hover:border-2 hover:border-black duration-400 ${selectfield === 'Company' ? 'text-black border-2 border-black' : 'text-gray-800 border-2 border-transparent'}  `}
+                        onClick={() => handleSelectVisitor("Company")}>
+                        Company
+                    </button>
+                </div>
 
                 {/* for the company */}
                 {selectfield == "Company" ?
@@ -687,35 +705,37 @@ const VisitorReg = () => {
                                         type="checkbox"
                                         checked={alreadyRegisteredCompany}
                                         onChange={handleCheckboxChangeForCompany}
-                                        style={{ width: '1.5em', height: '1.5em', marginRight: '0.5em' }}
+                                        className="w-[1.5em] h-[1.5em] mr-[0.5em]"
                                     />
 
                                     <label
-                                        className="block text-md font-medium text-gray-900 dark:text-white"
+                                        className="text-md font-medium text-gray-900 inline-block"
                                         htmlFor="alreadyRegisteredCompany"
-                                        style={{ display: 'inline-block' }}
                                     >
                                         Already Registered?
                                     </label>
                                 </div>
                             </div>
                             {(selectfield == "Company" || selectfield == "Individual") && <button
-                                className=" mb-3 py-2 px-4 bg-red-500 text-white rounded-md hover:bg-red-400 focus:outline-none focus:ring focus:ring-pink-200" onClick={() => handleSelectVisitor("")}
-                                style={{ backgroundColor: "red" }}
+                                className={`${button} mb-3 !bg-red-600 text-white rounded-md hover:bg-red-400 focus:outline-none focus:ring focus:ring-pink-200`} onClick={() => handleSelectVisitor("")}
+
                             >
                                 Back
                             </button>}
                         </div>
                         <Formik>
-                            <Form onSubmit={handleSubmitForCompany}>
+                            <Form onSubmit={handleSubmitForCompany} className="flex flex-col gap-4">
 
-                                <div className="mb-4">
-                                    <label
-                                        className="block mb-2 font-medium text-gray-900 dark:text-white"
-                                        htmlFor="vCompanyName"
-                                    >
-                                        Company Name
-                                    </label>
+                                <div className="">
+                                    <div className="">
+                                        <label
+                                            className="block font-medium text-gray-900 "
+                                            htmlFor="vCompanyName"
+                                        >
+                                            Company Name
+                                        </label>
+                                        <span className="text-xs text-blue-700 font-semibold">Enter the Company Name.</span>
+                                    </div>
                                     <Field
                                         type="text"
                                         id="vCompanyName"
@@ -727,10 +747,13 @@ const VisitorReg = () => {
                                         required
                                     />
                                 </div>
-                                <div className="mb-4">
-                                    <label htmlFor="vCompanyAddress" className="block mb-1 font-medium">
-                                        Company Address:
-                                    </label>
+                                <div className="">
+                                    <div>
+                                        <label htmlFor="vCompanyAddress" className="block  font-medium">
+                                            Company Address:
+                                        </label>
+                                        <span className="text-xs text-blue-700 font-semibold">Enter the Company Address.</span>
+                                    </div>
                                     <Field
                                         type="text"
                                         id="vCompanyAddress"
@@ -742,10 +765,13 @@ const VisitorReg = () => {
                                         required
                                     />
                                 </div>
-                                <div className="mb-4">
-                                    <label htmlFor="vCompanyContact" className="block mb-1 font-medium">
-                                        Company Contact:
-                                    </label>
+                                <div className="">
+                                    <div>
+                                        <label htmlFor="vCompanyContact" className="block  font-medium">
+                                            Company Contact:
+                                        </label>
+                                        <span className="text-xs text-blue-700 font-semibold">Enter the Company Contact.</span>
+                                    </div>
                                     <Field
                                         type="number"
                                         id="vCompanyContact"
@@ -757,10 +783,13 @@ const VisitorReg = () => {
                                         required
                                     />
                                 </div>
-                                <div className="mb-4">
-                                    <label htmlFor="vCompanyEmail" className="block mb-1 font-medium">
-                                        Company Email:
-                                    </label>
+                                <div className="">
+                                    <div>
+                                        <label htmlFor="vCompanyEmail" className="block  font-medium">
+                                            Company Email:
+                                        </label>
+                                        <span className="text-xs text-blue-700 font-semibold">Enter the Company Email.</span>
+                                    </div>
                                     <Field
                                         type="text"
                                         id="vCompanyEmail"
@@ -772,10 +801,13 @@ const VisitorReg = () => {
                                         required
                                     />
                                 </div>
-                                <div className="mb-4">
-                                    <label htmlFor="vCompanyGST" className="block mb-1 font-medium">
-                                        Company GST:
-                                    </label>
+                                <div className="">
+                                    <div>
+                                        <label htmlFor="vCompanyGST" className="block  font-medium">
+                                            Company GST:
+                                        </label>
+                                        <span className="text-xs text-blue-700 font-semibold">Enter the Company GST:</span>
+                                    </div>
                                     <Field
                                         type="text"
                                         id="vCompanyGST"
@@ -787,10 +819,13 @@ const VisitorReg = () => {
                                         required
                                     />
                                 </div>
-                                <div className="mb-4">
-                                    <label htmlFor="vCompanyIndustry" className="block mb-1 font-medium">
-                                        Company Industry:
-                                    </label>
+                                <div className="">
+                                    <div>
+                                        <label htmlFor="vCompanyIndustry" className="block  font-medium">
+                                            Company Industry:
+                                        </label>
+                                        <span className="text-xs text-blue-700 font-semibold">Enter the Company Industry.</span>
+                                    </div>
                                     <Field
                                         type="text"
                                         id="vCompanyIndustry"
@@ -805,10 +840,14 @@ const VisitorReg = () => {
 
 
 
-                                <div className="mb-4">
-                                    <label htmlFor="contactPersonName" className="block mb-1 font-medium">
-                                        Contact Person Name:
-                                    </label>
+                                <div className="">
+                                    <div>
+                                        <label htmlFor="contactPersonName" className="block  font-medium">
+                                            Contact Person Name:
+                                        </label>
+                                        <span className="text-xs text-blue-700 font-semibold">Enter the Name of employee you want to make.</span>
+                                    </div>
+
                                     <Field
                                         type="text"
                                         id="contactPersonName"
@@ -821,10 +860,13 @@ const VisitorReg = () => {
                                     />
                                 </div>
 
-                                <div className="mb-4">
-                                    <label htmlFor="purposeOfMeeting" className="block mb-1 font-medium">
-                                        Purpose of visit:
-                                    </label>
+                                <div className="">
+                                    <div>
+                                        <label htmlFor="purposeOfMeeting" className="block  font-medium">
+                                            Purpose of visit:
+                                        </label>
+                                        <span className="text-xs text-blue-700 font-semibold">Please Explain the Agenda of Meeting.</span>
+                                    </div>
                                     <Field
                                         as="textarea"
                                         id="purposeOfMeeting"
@@ -846,25 +888,27 @@ const VisitorReg = () => {
                                     />
                                 </div>
 
-                                <button
+                                {/* <button
                                     type="submit"
-                                    className="w-full mb-3 py-2 px-4 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:ring-pink-200"
+                                    className={`${button} mb-3 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:ring-pink-200`}
                                     style={{ backgroundColor: "blue" }}
                                 >
                                     Submit
-                                </button>
+                                </button> */}
                             </Form>
                         </Formik>
                     </> : ""}
                 {(selectfield == "Company" && count <= 5) && (
-                    <button
-                        type="submit"
-                        onClick={handleOpen}
-                        className="w-full py-2 px-4 bg-pink-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:ring-pink-200"
-                        style={{ backgroundColor: "red" }}
-                    >
-                        + Add Visitors
-                    </button>
+                    <div className="flex items-center w-full justify-end mt-5">
+                        <button
+                            type="submit"
+                            onClick={handleOpen}
+                            className={`${button} flex items-center !bg-blue-600 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:ring-pink-200`}
+
+                        >
+                            <span>Next</span> <GrNext />
+                        </button>
+                    </div>
                 )}
 
 
@@ -872,7 +916,7 @@ const VisitorReg = () => {
                 {selectfield == "Individual" ?
                     <>
                         <Formik>
-                            <Form onSubmit={handleSubmitForIndividual}>
+                            <Form onSubmit={handleSubmitForIndividual} className="flex flex-col gap-4">
                                 <div className="my-5 flex items-center w-full justify-between">
                                     <div>
 
@@ -882,30 +926,32 @@ const VisitorReg = () => {
                                                 type="checkbox"
                                                 checked={alreadyRegisteredIndividual}
                                                 onChange={handleCheckboxChangeForIndividual}
-                                                style={{ width: '1.5em', height: '1.5em', marginRight: '0.5em' }}
+                                                className="w-[1.5em] h-[1.5em] mr-[0.5em]"
                                             />
 
                                             <label
-                                                className="block text-md font-medium text-gray-900 dark:text-white"
+                                                className="inline-block text-md font-medium text-gray-900"
                                                 htmlFor="alreadyRegisteredIndividual"
-                                                style={{ display: 'inline-block' }}
                                             >
                                                 Already Registered?
                                             </label>
                                         </div>
                                     </div>
                                     {(selectfield == "Company" || selectfield == "Individual") && <button
-                                        className=" mb-3 py-2 px-4 bg-red-500 text-white rounded-md hover:bg-red-400 focus:outline-none focus:ring focus:ring-pink-200" onClick={() => handleSelectVisitor("")}
-                                        style={{ backgroundColor: "red" }}
+                                        className="mb-3 py-2 px-4 !bg-red-600 text-white rounded-md hover:bg-red-400 focus:outline-none focus:ring focus:ring-pink-200" onClick={() => handleSelectVisitor("")}
+
                                     >
                                         Back
                                     </button>}
                                 </div>
 
-                                <div className="mb-4">
-                                    <label htmlFor="contactPersonName" className="block mb-1 font-medium">
-                                        Contact Person Name:
-                                    </label>
+                                <div className="flex flex-col gap-2">
+                                    <div className="flex flex-col gap-2">
+                                        <label htmlFor="contactPersonName" className="block  font-medium">
+                                            Contact Person Name:
+                                        </label>
+                                        <span className="text-xs text-blue-700 font-semibold">Enter the Name of employee you want to make.</span>
+                                    </div>
                                     <Field
                                         type="text"
                                         id="contactPersonName"
@@ -916,12 +962,17 @@ const VisitorReg = () => {
                                         value={formDataForIndividual.contactPersonName}
                                         required
                                     />
+
                                 </div>
 
-                                <div className="mb-4">
-                                    <label htmlFor="purposeOfMeeting" className="block mb-1 font-medium">
-                                        Purpose of visit:
-                                    </label>
+                                <div className="flex flex-col gap-2">
+                                    <div className="flex flex-col gap-2">
+                                        <label htmlFor="purposeOfMeeting" className="block  font-medium">
+                                            Purpose of visit:
+                                        </label>
+                                        <span className="text-xs text-blue-700 font-semibold">Please Explain the Agenda of Meeting.</span>
+                                    </div>
+
                                     <Field
                                         as="textarea"
                                         id="purposeOfMeeting"
@@ -944,46 +995,51 @@ const VisitorReg = () => {
                                 </div>
 
 
-                                <button
+                                {/* <button
                                     type="submit"
                                     className="w-full mb-3 py-2 px-4 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:ring-pink-200"
                                     style={{ backgroundColor: "blue" }}
                                 >
                                     Submit
-                                </button>
+                                </button> */}
                             </Form>
                         </Formik>
                     </> : ""}
                 {(selectfield == "Individual" && count <= 5) && (
-                    <button
-                        type="submit"
-                        onClick={handleOpenforIndividual}
-                        className="w-full py-2 px-4 bg-pink-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:ring-pink-200"
-                        style={{ backgroundColor: "red" }}
-                    >
-                        + Add Visitors
-                    </button>
+                    <div className="flex items-center w-full justify-end mt-5">
+                        <button
+                            type="submit"
+                            onClick={handleOpenforIndividual}
+                            className={`${button} flex items-center !bg-blue-600 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:ring-pink-200`}
+
+                        >
+                            <span>Next</span> <GrNext />
+                        </button>
+                    </div>
                 )}
             </div>
 
 
             {/* for the company */}
 
-            {(selectfield == "Company" && count <= 5) && <Dialog size="xs" open={open} handler={handleOpen} className="pt-[1rem] bg-transparent shadow-none cardmodal">
+            {(selectfield == "Company" && count <= 5) && <Dialog size="xl" open={open} handler={handleOpen} className="bg-transparent shadow-none cardmodal overflow-y-auto">
                 <form onSubmit={handleDialogSubmit}>
-                    <Card className="mx-auto w-full max-w-[24rem] rounded-md" style={{ backgroundColor: "white" }}>
+                    <Card className="relative p-2 lg:p-5 mx-auto w-full max-w-[24rem] lg:max-w-[30rem] xl:max-w-[35rem] rounded-md !bg-white">
                         <CardBody className="flex flex-col gap-4" >
+                            <span className="absolute right-5 top-5 cursor-pointer" onClick={handleOpen}>
+                                <IoMdClose />
+                            </span>
                             <div className="">
-                                <Typography className="text-center" variant="h6">Person {count}</Typography>
+                                <Typography className="text-center" variant="h6">Registration Detail {count}</Typography>
 
-                                <div className="mb-4 px-2">
+                                <div className=" px-2 flex flex-col gap-4 my-5">
                                     <label>First Name:</label>
                                     <input
                                         type="text"
                                         name="vFirstName"
                                         id="vFirstName"
                                         placeholder="First Name"
-                                        className="mb-2"
+                                        className=" p-2"
                                         style={inputStyle}
                                         onChange={(e) => handleVisitorChange(e, count - 1)}
                                         required
@@ -994,7 +1050,7 @@ const VisitorReg = () => {
                                         name="vLastName"
                                         id="vLastName"
                                         placeholder="Last Name"
-                                        className="mb-2"
+                                        className=" p-2"
                                         style={inputStyle}
                                         onChange={(e) => handleVisitorChange(e, count - 1)}
                                         required
@@ -1005,7 +1061,7 @@ const VisitorReg = () => {
                                         name="vDesignation"
                                         id="vDesignation"
                                         placeholder="Designation"
-                                        className="mb-2"
+                                        className=" p-2"
                                         style={inputStyle}
                                         onChange={(e) => handleVisitorChange(e, count - 1)}
                                         required
@@ -1016,7 +1072,7 @@ const VisitorReg = () => {
                                         name="vDateOfBirth"
                                         id="vDateOfBirth"
                                         placeholder="Date of Birth"
-                                        className="mb-2"
+                                        className=" p-2"
                                         style={inputStyle}
                                         onChange={(e) => handleVisitorChange(e, count - 1)}
                                         required
@@ -1027,7 +1083,7 @@ const VisitorReg = () => {
                                         name="vDepartment"
                                         id="vDepartment"
                                         placeholder="Department"
-                                        className="mb-2"
+                                        className=" p-2"
                                         style={inputStyle}
                                         onChange={(e) => handleVisitorChange(e, count - 1)}
                                         required
@@ -1039,17 +1095,19 @@ const VisitorReg = () => {
                                         id="vLiveImage"
                                         type="file"
                                         name="vLiveImage"
+                                        className="p-2"
                                         style={inputStyle}
                                         onChange={(e) => handleFileChangeForCompanyLiveImage(e, count - 1)}
                                         required
                                     />
                                     <label>
-                                        Upload ID Proof:
+                                        Upload Adhar Card :
                                     </label>
                                     <input
                                         id="vPhotoID"
                                         type="file"
                                         name="vPhotoID"
+                                        className="p-2"
                                         style={inputStyle}
                                         onChange={(e) => handleFileChangeForCompanyphotoId(e, count - 1)}
                                         required
@@ -1061,6 +1119,7 @@ const VisitorReg = () => {
                                         id="vVisitorID"
                                         name="vVisitorID"
                                         type="file"
+                                        className="p-2"
                                         style={inputStyle}
                                         onChange={(e) => handleFileChangeForCompanyvisitorId(e, count - 1)}
                                         required
@@ -1069,13 +1128,16 @@ const VisitorReg = () => {
                                 </div>
                             </div>
                         </CardBody>
-                        <CardFooter className="pt-0 p-[0.5rem]">
-                            <Button variant="gradient" type="submit" className="p-[0.2rem]" style={{ backgroundColor: "blue" }} fullWidth>
+                        <CardFooter className="flex gap-2">
+                            <Button variant="gradient" className={`${button} !bg-green-600`}>
+                                + Add Visitors
+                            </Button>
+                            <Button variant="gradient" type="submit" className={`${button} !bg-blue-600`}>
                                 Submit
                             </Button>
-                            <Button variant="gradient" className="mt-2 p-[0.2rem]" style={{ backgroundColor: "red" }} fullWidth onClick={handleOpen}>
+                            {/* <Button variant="gradient" className={`${button} !bg-red-600`} onClick={handleOpen}>
                                 Cancel
-                            </Button>
+                            </Button> */}
                         </CardFooter>
                     </Card>
                 </form>
@@ -1096,22 +1158,25 @@ const VisitorReg = () => {
                 </div>}
 
             {/* now for the individual start */}
-            {/* {(selectfield == "Individual") && <Dialog size="xs" open={openforIndividual} handler={handleOpenforIndividual} className="pt-[0.2rem] bg-transparent shadow-none cardmodalForIndividual overflow-y-auto" style={{ width: `${!toggle ? "85%" : "100%"}`, float: `${!toggle ? "right" : ""}` }}> */}
-            {(selectfield == "Individual") && <Dialog size="xs" open={openforIndividual} handler={handleOpenforIndividual} className="pt-[0.2rem] bg-transparent shadow-none cardmodalForIndividual overflow-y-auto">
+            {/* {(selectfield == "Individual") && <Dialog size="xl" open={openforIndividual} handler={handleOpenforIndividual} className="pt-[0.2rem] bg-transparent shadow-none cardmodalForIndividual overflow-y-auto" style={{ width: `${!toggle ? "85%" : "100%"}`, float: `${!toggle ? "right" : ""}` }}> */}
+            {(selectfield == "Individual") && <Dialog size="xl" open={openforIndividual} handler={handleOpenforIndividual} className=" bg-transparent shadow-none cardmodalForIndividual overflow-y-auto">
                 <form onSubmit={handleDialogSubmitForIndividual}>
-                    <Card className="mx-auto w-full max-w-[24rem] rounded-md" style={{ backgroundColor: "white" }}>
-                        <CardBody className="flex flex-col gap-4" >
+                    <Card className="relative p-2 lg:p-5 mx-auto w-full max-w-[24rem] lg:max-w-[30rem] xl:max-w-[35rem] rounded-md" style={{ backgroundColor: "white" }}>
+                        <CardBody className="flex flex-col gap-4 my-5 h-full" >
+                            <span className="absolute right-5 top-5 cursor-pointer" onClick={handleOpenforIndividual}>
+                                <IoMdClose />
+                            </span>
                             <div className="">
-                                <Typography className="text-center" variant="h6">Person {count}</Typography>
+                                <Typography className="text-center" variant="h6">Registration Detail {count}</Typography>
 
-                                <div className="mb-2 px-2">
+                                <div className="px-2 flex flex-col gap-3">
                                     <label style={{ fontSize: "0.8rem" }}>First Name:</label>
                                     <input
                                         type="text"
                                         name="vFirstName"
                                         id="vFirstName"
                                         placeholder="First Name"
-                                        className="mb-1"
+                                        className=" p-2"
                                         style={inputStyleForIndividual}
                                         onChange={(e) => handleVisitorChangeForIndividual(e, count - 1)}
                                         required
@@ -1122,7 +1187,7 @@ const VisitorReg = () => {
                                         name="vLastName"
                                         id="vLastName"
                                         placeholder="Last Name"
-                                        className="mb-1"
+                                        className=" p-2"
                                         style={inputStyleForIndividual}
                                         onChange={(e) => handleVisitorChangeForIndividual(e, count - 1)}
                                         required
@@ -1133,7 +1198,7 @@ const VisitorReg = () => {
                                         name="vDesignation"
                                         id="vDesignation"
                                         placeholder="Designation"
-                                        className="mb-1"
+                                        className=" p-2"
                                         style={inputStyleForIndividual}
                                         onChange={(e) => handleVisitorChangeForIndividual(e, count - 1)}
                                         required
@@ -1144,7 +1209,7 @@ const VisitorReg = () => {
                                         name="vDateOfBirth"
                                         id="vDateOfBirth"
                                         placeholder="Date of Birth"
-                                        className="mb-1"
+                                        className=" p-2"
                                         style={inputStyleForIndividual}
                                         onChange={(e) => handleVisitorChangeForIndividual(e, count - 1)}
                                         required
@@ -1155,7 +1220,7 @@ const VisitorReg = () => {
                                         name="vDepartment"
                                         id="vDepartment"
                                         placeholder="Department"
-                                        className="mb-1"
+                                        className=" p-2"
                                         style={inputStyleForIndividual}
                                         onChange={(e) => handleVisitorChangeForIndividual(e, count - 1)}
                                         required
@@ -1166,7 +1231,7 @@ const VisitorReg = () => {
                                         name="vPANCard"
                                         id="vPANCard"
                                         placeholder="PAN Card"
-                                        className="mb-1"
+                                        className=" p-2"
                                         style={inputStyleForIndividual}
                                         onChange={(e) => handleVisitorChangeForIndividual(e, count - 1)}
                                         required
@@ -1177,7 +1242,7 @@ const VisitorReg = () => {
                                         name="vAddress"
                                         id="vAddress"
                                         placeholder="Address"
-                                        className="mb-1"
+                                        className=" p-2"
                                         style={inputStyleForIndividual}
                                         onChange={(e) => handleVisitorChangeForIndividual(e, count - 1)}
                                         required
@@ -1188,7 +1253,7 @@ const VisitorReg = () => {
                                         name="vContact"
                                         id="vContact"
                                         placeholder="Contact No"
-                                        className="mb-1"
+                                        className=" p-2"
                                         style={inputStyleForIndividual}
                                         onChange={(e) => handleVisitorChangeForIndividual(e, count - 1)}
                                         required
@@ -1199,7 +1264,7 @@ const VisitorReg = () => {
                                         name="vMailID"
                                         id="vMailID"
                                         placeholder="Mail ID"
-                                        className="mb-1"
+                                        className=" p-2"
                                         style={inputStyleForIndividual}
                                         onChange={(e) => handleVisitorChangeForIndividual(e, count - 1)}
                                         required
@@ -1211,17 +1276,19 @@ const VisitorReg = () => {
                                         id="vLiveImage"
                                         type="file"
                                         name="vLiveImage"
+                                        className="p-2"
                                         style={inputStyleForIndividual}
                                         onChange={(e) => handleFileChangeForIndividualLiveImage(e, count - 1)}
                                         required
                                     />
                                     <label style={{ fontSize: "0.8rem" }}>
-                                        Upload ID Proof:
+                                        Upload Adhar Card :
                                     </label>
                                     <input
                                         id="vPhotoID"
                                         type="file"
                                         name="vPhotoID"
+                                        className="p-2"
                                         style={inputStyleForIndividual}
                                         onChange={(e) => handleFileChangeForIndividualphotoId(e, count - 1)}
                                         required
@@ -1233,6 +1300,7 @@ const VisitorReg = () => {
                                         id="vVisitorID"
                                         name="vVisitorID"
                                         type="file"
+                                        className="p-2"
                                         style={inputStyleForIndividual}
                                         onChange={(e) => handleFileChangeForIndividualvisitorId(e, count - 1)}
                                         required
@@ -1241,13 +1309,16 @@ const VisitorReg = () => {
                                 </div>
                             </div>
                         </CardBody>
-                        <CardFooter className="pt-0 p-[0.3rem]">
-                            <Button variant="gradient" type="submit" className="p-[0.1rem]" style={{ backgroundColor: "blue" }} fullWidth>
+                        <CardFooter className="flex gap-2">
+                            <Button variant="gradient" className={`${button} !bg-green-500`}>
+                                + Add Visitors
+                            </Button>
+                            <Button variant="gradient" type="submit" className={`${button} !bg-blue-600`}>
                                 Submit
                             </Button>
-                            <Button variant="gradient" className="mt-1 p-[0.1rem]" style={{ backgroundColor: "red" }} fullWidth onClick={handleOpenforIndividual}>
+                            {/* <Button variant="gradient" className={`${button} !bg-red-500`} onClick={handleOpenforIndividual}>
                                 Cancel
-                            </Button>
+                            </Button> */}
                         </CardFooter>
                     </Card>
                 </form>
