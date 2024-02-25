@@ -845,7 +845,7 @@ const VisitorReg = () => {
                                         <label htmlFor="contactPersonName" className="block  font-medium">
                                             Contact Person Name:
                                         </label>
-                                        <span className="text-xs text-blue-700 font-semibold">Enter the Name of employee you want to make.</span>
+                                        <span className="text-xs text-blue-700 font-semibold">Enter the Name of employee you want to meet.</span>
                                     </div>
 
                                     <Field
@@ -950,7 +950,7 @@ const VisitorReg = () => {
                                         <label htmlFor="contactPersonName" className="block  font-medium">
                                             Contact Person Name:
                                         </label>
-                                        <span className="text-xs text-blue-700 font-semibold">Enter the Name of employee you want to make.</span>
+                                        <span className="text-xs text-blue-700 font-semibold">Enter the Name of employee you want to meet.</span>
                                     </div>
                                     <Field
                                         type="text"
