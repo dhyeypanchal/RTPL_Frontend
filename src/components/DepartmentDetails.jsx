@@ -26,7 +26,7 @@ function DepartmentDetails() {
 
       // setUsers(combined)
       // console.log(users);
-      const totaldata = response.data.departments.map((meeting) => ({
+      const totaldata = response.data.data.departments.map((meeting) => ({
         id: meeting.departmentID,
         Department: meeting.department
       }))

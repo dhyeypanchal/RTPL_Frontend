@@ -207,14 +207,14 @@ function Nav({ element }) {
 
 
                         {/* for the visitors */}
-                        <button
+                        {/* <button
                             style={{ color: "black", textDecoration: "none", textAlign: "left" }}
                             onClick={VisitorFunc}
                             className={`pt-3 pl-3 pb-3 ${visitorDetails === true && !toggle ? 'nav-link active' : 'nav-link'}`}
                         >
                             {!toggle && <div style={{ cursor: "pointer", height: "100%", width: "100%" }} className="nav-active"><i className="fa-regular fa-user mx-3 fa-lg" style={{ color: "#4460EF" }}></i>Visitors</div>}
-                        </button>
-                        {visitorClick && (
+                        </button> */}
+                        {/* {visitorClick && (
                             <div className={`bgdropdown ml-[-0.3rem] transition-all duration-300 ${toggle ? 'opacity-0 h-0' : 'opacity-100 h-auto'}`}>
                                 <div>
                                     <div className="w-full h-[2rem]">
@@ -226,7 +226,7 @@ function Nav({ element }) {
                                    
                                 </div>
                             </div>
-                        )}
+                        )} */}
                         {/* <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/requests'} className={`pt-3 pb-3 ${activeLink === '/admin/requests' && !toggle ? 'nav-link active' : 'nav-link'}`}>
                             {!toggle && <div style={{ cursor: "pointer", height: "100%", width: "100%" }} className="nav-active"><i className="fa-solid fa-phone mx-3 fa-lg" style={{ color: "#4460EF" }}></i>Call Requests</div>}
                         </Link>

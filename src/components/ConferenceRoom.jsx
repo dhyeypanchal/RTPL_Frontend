@@ -26,7 +26,7 @@ function ConferenceRoom() {
 
       // setUsers(combined)
       // console.log(users);
-      const totaldata = response.data.data.map((conference) => ({
+      const totaldata = response.data.data.conferenceRooms.map((conference) => ({
         id: conference.conferenceRoomID,
         OfficeId: conference.officeID,
         ConferenceRoomName: conference.conferenceRoomName

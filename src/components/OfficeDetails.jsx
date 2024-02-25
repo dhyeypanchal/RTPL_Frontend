@@ -26,7 +26,7 @@ function OfficeDetails() {
 
       // setUsers(combined)
       // console.log(users);
-      const totaldata = response.data.data.map((office) => ({
+      const totaldata = response.data.data.offices.map((office) => ({
         id: office.officeID,
         CompanyId: office.companyID,
         Address: office.Address

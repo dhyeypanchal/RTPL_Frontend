@@ -20,7 +20,7 @@ function AddAdmin() {
         const getData = async () => {
             try {
                 const response1 = await instance.get("/api/role/getRoleList");
-                const totalroledata = response1.data.employeeRoles.map((role) => ({
+                const totalroledata = response1.data.data.employeeRoles.map((role) => ({
                     RoleId: role.roleID,
                     Role: role.role,
                 }))
@@ -32,7 +32,7 @@ function AddAdmin() {
 
             try {
                 const response2 = await instance.get("/api/company/getCompanyList");
-                const totalcompanydata = response2.data.data.map((company) => ({
+                const totalcompanydata = response2.data.data.company.map((company) => ({
                     CompanyId: company.companyID,
                     CompanyName: company.Name,
 
@@ -45,7 +45,7 @@ function AddAdmin() {
             try {
                 const response3 = await instance.get("/api/department/get_department_list");
 
-                const totaldepartmentdata = response3.data.departments.map((departments) => ({
+                const totaldepartmentdata = response3.data.data.departments.map((departments) => ({
                     DepartmentId: departments.departmentID,
                     Department: departments.department,
 
@@ -280,7 +280,7 @@ function AddAdmin() {
         }));
 
         const response4 = await instance.get(`/api/company/office/getOfficelistByCompany/${e.target.value}`);
-        const totalofficedata = response4.data.data.map((office) => ({
+        const totalofficedata = response4.data.data.offices.map((office) => ({
             OfficeId: office.officeID,
             OfficeAddress: office.Address,
         }))
@@ -298,7 +298,7 @@ function AddAdmin() {
         }));
 
         const response5 = await instance.get(`/api/designation/get_designation_By_DepartmentID/${e.target.value}`);
-        const totaldesignationdata = response5.data.designations.map((designation) => ({
+        const totaldesignationdata = response5.data.data.designations.map((designation) => ({
             DesignationId: designation.designationID,
             Designation: designation.designation,
         }))

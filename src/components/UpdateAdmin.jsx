@@ -23,7 +23,7 @@ function UpdateAdmin() {
         const getData = async () => {
             try {
                 const response1 = await instance.get("/api/role/getRoleList");
-                const totalroledata = response1.data.employeeRoles.map((role) => ({
+                const totalroledata = response1.data.data.employeeRoles.map((role) => ({
                     RoleId: role.roleID,
                     Role: role.role,
                 }))
@@ -35,7 +35,7 @@ function UpdateAdmin() {
 
             try {
                 const response2 = await instance.get("/api/company/getCompanyList");
-                const totalcompanydata = response2.data.data.map((company) => ({
+                const totalcompanydata = response2.data.data.company.map((company) => ({
                     CompanyId: company.companyID,
                     CompanyName: company.Name,
 
@@ -48,7 +48,7 @@ function UpdateAdmin() {
             try {
                 const response3 = await instance.get("/api/department/get_department_list");
 
-                const totaldepartmentdata = response3.data.departments.map((departments) => ({
+                const totaldepartmentdata = response3.data.data.departments.map((departments) => ({
                     DepartmentId: departments.departmentID,
                     Department: departments.department,
 
@@ -283,7 +283,7 @@ function UpdateAdmin() {
         }));
 
         const response4 = await instance.get(`/api/company/office/getOfficelistByCompany/${e.target.value}`);
-        const totalofficedata = response4.data.data.map((office) => ({
+        const totalofficedata = response4.data.data.offices.map((office) => ({
             OfficeId: office.officeID,
             OfficeAddress: office.Address,
         }))
@@ -301,7 +301,7 @@ function UpdateAdmin() {
         }));
 
         const response5 = await instance.get(`/api/designation/get_designation_By_DepartmentID/${e.target.value}`);
-        const totaldesignationdata = response5.data.designations.map((designation) => ({
+        const totaldesignationdata = response5.data.data.designations.map((designation) => ({
             DesignationId: designation.designationID,
             Designation: designation.designation,
         }))
@@ -316,6 +316,7 @@ function UpdateAdmin() {
     //     SetValueForRole(e.target.value)
     // }
 
+    console.log(state?.data?.employeeDesignation.designation);
 
 
     const [selectedPermissions, setSelectedPermissions] = useState([]);
@@ -477,7 +478,7 @@ function UpdateAdmin() {
 
 {/* from the role the code is pending */}
                                 <div className="flex flex-wrap justify-center sm:mb-4">
-                                    <div className="mb-4 sm:w-full sm:mx-[2rem] w-72">
+                                    <div className=" sm:w-full sm:mx-[2rem] w-72">
                                         <label htmlFor="role" value={formData.role} className="block mb-1 font-medium">
                                             Role:
                                         </label>
@@ -537,7 +538,7 @@ function UpdateAdmin() {
                                         <label htmlFor="designation" className="block mb-1 font-medium">
                                             Designation:
                                         </label>
-                                        <Field as="select" name="designation" id="designation" style={inputStyle} onChange={handleInputChange}>
+                                        <Field as="select" name="designation" id="designation" style={inputStyle} onChange={handleInputChange} value={state?.data?.employeeDesignationID}>
                                             <option value="" hidden>
                                                 Select Designation
                                             </option>
@@ -566,7 +567,7 @@ function UpdateAdmin() {
                                 </div>
 
 
-                                <div className="flex flex-wrap justify-center items-center">
+                                {/* <div className="flex flex-wrap justify-center items-center">
 
                                     <div className="mb-4 w-72 mr-2">
                                         <label
@@ -619,7 +620,7 @@ function UpdateAdmin() {
                                             onChange={handleFileChange}
                                         />
                                     </div>
-                                </div>
+                                </div> */}
                             </> : ""}
 
                         <div className="flex flex-wrap justify-center items-center sm:mb-4">

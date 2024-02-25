@@ -26,7 +26,7 @@ function DesignationDetails() {
 
       // setUsers(combined)
       // console.log(users);
-      const totaldata = response.data.designations.map((designation) => ({
+      const totaldata = response.data.data.designations.map((designation) => ({
         id: designation.designationID,
         Designation: designation.designation,
         DepartmentID:designation.departmentID

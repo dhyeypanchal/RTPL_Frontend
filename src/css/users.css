@@ -85,7 +85,7 @@
 .cardmodal{
     backdrop-filter: var(--tw-backdrop-blur)!important;
     background-color: rgb(0 0 0 / var(--tw-bg-opacity))!important;
-    height: 92vh!important;
+    height: 100vh!important;
 }
 
 .cardmodalForIndividual{

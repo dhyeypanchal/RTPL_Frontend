@@ -26,7 +26,7 @@ function Roles() {
 
       // setUsers(combined)
       // console.log(users);
-      const totaldata = response.data.employeeRoles.map((roles) => ({
+      const totaldata = response.data.data.employeeRoles.map((roles) => ({
         id: roles.roleID,
         Role: roles.role
       }))

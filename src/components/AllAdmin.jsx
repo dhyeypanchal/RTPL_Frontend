@@ -33,7 +33,7 @@ function AllAdmin() {
 
             // setUsers(combined)
             // console.log(users);
-            const totaldata = response.data.data.map((admin) => ({
+            const totaldata = response.data.data.nonAdminEmployees.map((admin) => ({
                 id: admin.empId,
                 FirstName: admin.firstName,
                 LastName:admin.lastName,
@@ -88,7 +88,7 @@ function AllAdmin() {
     const handleEdit = async(code) => {
         console.log(code);
         const request = await instance.get(`/api/employee/getEmployeeByEmpCode/${code}`)
-        navigate("/admin/update_Admin", { state: { data: request.data.employees[0]}})
+        navigate("/admin/update_Admin", { state: { data: request.data.data.employees[0]}})
     }
 
 

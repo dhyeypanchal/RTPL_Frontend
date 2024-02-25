@@ -55,7 +55,7 @@ function App() {
         <Route path="/admin/all_Admin" element={<Nav element={<AllAdmin/>}/> }/>
         <Route path="/admin/add_Admin" element={<Nav element={<AddAdmin/>}/> }/>
         <Route path="/admin/update_Admin" element={<Nav element={<UpdateAdmin/>}/> }/>
-        <Route path="/visitor/visitor_Registration" element={<Nav element={<VisitorReg/>}/> }/>
+        <Route path="/visitor/visitor_Registration" element={<VisitorReg/>}/>
       </Routes>
       <ToastContainer
         position="top-right"

@@ -26,7 +26,7 @@ function MeetingType() {
 
       // setUsers(combined)
       // console.log(users);
-      const totaldata = response.data.meetings.map((meeting) => ({
+      const totaldata = response.data.data.meetings.map((meeting) => ({
         id: meeting.meetingTypeID,
         MeetingType: meeting.meetingType
       }))
