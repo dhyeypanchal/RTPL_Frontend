@@ -36,7 +36,7 @@ function App() {
         {/* Use PrivateRoute for all protected routes */}
         <Route
           path="/"
-          element={<Navigate to="/home" />} name={"home"} />
+          element={<Navigate to="/admin/details/roles" />} name={"role"} />
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />

@@ -120,49 +120,49 @@ function Nav({ element }) {
                             <div className={`bgdropdown ml-[-0.3rem] transition-all duration-300 ${toggle ? 'opacity-0 h-0' : 'opacity-100 h-auto'}`}>
                                 <div>
                                     <div className="w-full h-[2rem]">
-                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/details/meeting_Type'} className={` ${location.pathname === '/admin/details/meeting_Type' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}>
+                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/details/meeting_Type'} className={` ${location.pathname === '/admin/details/meeting_Type' && !toggle ? 'nav-link' : 'nav-link'}`}>
                                             {!toggle && <div style={{ cursor: "pointer" }} className={`pl-[3rem] pt-3 pb-3 nav-active ${location.pathname === '/admin/details/meeting_Type' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}><i className="fa-solid fa-table-columns mx-3 fa-lg" style={{ color: "#4460EF" }}></i>Meeting Type</div>}
                                         </Link>
                                     </div>
                                     <div className="mt-4 mb-3 h-[2rem]" style={{ width: "100%" }}>
 
-                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/details/meeting_Mode'} className={` ${location.pathname === '/admin/details/meeting_Mode' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}>
+                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/details/meeting_Mode'} className={` ${location.pathname === '/admin/details/meeting_Mode' && !toggle ? 'nav-link' : 'nav-link'}`}>
                                             {!toggle && <div style={{ cursor: "pointer" }} className={`pl-[3rem] pt-3 pb-3 nav-active ${location.pathname === '/admin/details/meeting_Mode' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}><i className="fa-solid fa-table-columns mx-3 fa-lg" style={{ color: "#4460EF" }}></i>Meeting Mode</div>}
                                         </Link>
                                     </div>
                                     <div className="mt-4 mb-3 h-[2rem]" style={{ width: "100%" }}>
 
-                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/details/department'} className={` ${location.pathname === '/admin/details/department' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}>
+                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/details/department'} className={` ${location.pathname === '/admin/details/department' && !toggle ? 'nav-link' : 'nav-link'}`}>
                                             {!toggle && <div style={{ cursor: "pointer" }} className={`pl-[3rem] pt-3 pb-3 nav-active ${location.pathname === '/admin/details/department' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}><i className="fa-solid fa-table-columns mx-3 fa-lg" style={{ color: "#4460EF" }}></i>Department</div>}
                                         </Link>
                                     </div>
                                     <div className="mt-4 mb-3 h-[2rem]" style={{ width: "100%" }}>
 
-                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/details/designation'} className={` ${location.pathname === '/admin/details/designation' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}>
+                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/details/designation'} className={` ${location.pathname === '/admin/details/designation' && !toggle ? 'nav-link' : 'nav-link'}`}>
                                             {!toggle && <div style={{ cursor: "pointer" }} className={`pl-[3rem] pt-3 pb-3 nav-active ${location.pathname === '/admin/details/designation' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}><i className="fa-solid fa-table-columns mx-3 fa-lg" style={{ color: "#4460EF" }}></i>Designation</div>}
                                         </Link>
                                     </div>
                                     <div className="mt-4 mb-3 h-[2rem]" style={{ width: "100%" }}>
 
-                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/details/company'} className={` ${location.pathname === '/admin/details/company' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}>
+                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/details/company'} className={` ${location.pathname === '/admin/details/company' && !toggle ? 'nav-link' : 'nav-link'}`}>
                                             {!toggle && <div style={{ cursor: "pointer" }} className={`pl-[3rem] pt-3 pb-3 nav-active ${location.pathname === '/admin/details/company' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}><i className="fa-solid fa-table-columns mx-3 fa-lg" style={{ color: "#4460EF" }}></i>Company</div>}
                                         </Link>
                                     </div>
                                     <div className="mt-4 mb-3 h-[2rem]" style={{ width: "100%" }}>
 
-                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/details/office'} className={` ${location.pathname === '/admin/details/office' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}>
+                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/details/office'} className={` ${location.pathname === '/admin/details/office' && !toggle ? 'nav-link' : 'nav-link'}`}>
                                             {!toggle && <div style={{ cursor: "pointer" }} className={`pl-[3rem] pt-3 pb-3 nav-active ${location.pathname === '/admin/details/office' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}><i className="fa-solid fa-table-columns mx-3 fa-lg" style={{ color: "#4460EF" }}></i>Office</div>}
                                         </Link>
                                     </div>
                                     <div className="mt-4 mb-3 h-[2rem]" style={{ width: "100%" }}>
 
-                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/details/conference'} className={` ${location.pathname === '/admin/details/conference' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}>
+                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/details/conference'} className={` ${location.pathname === '/admin/details/conference' && !toggle ? 'nav-link' : 'nav-link'}`}>
                                             {!toggle && <div style={{ cursor: "pointer" }} className={`pl-[3rem] pt-3 pb-3 nav-active ${location.pathname === '/admin/details/conference' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}><i className="fa-solid fa-table-columns mx-3 fa-lg" style={{ color: "#4460EF" }}></i>Conference Room</div>}
                                         </Link>
                                     </div>
                                     <div className="mt-4 mb-4 h-[2rem]" style={{ width: "100%" }}>
 
-                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/details/roles'} className={` ${location.pathname === '/admin/details/roles' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}>
+                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/details/roles'} className={` ${location.pathname === '/admin/details/roles' && !toggle ? 'nav-link' : 'nav-link'}`}>
                                             {!toggle && <div style={{ cursor: "pointer" }} className={`pl-[3rem] pt-3 pb-3 nav-active ${location.pathname === '/admin/details/roles' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}><i className="fa-solid fa-table-columns mx-3 fa-lg" style={{ color: "#4460EF" }}></i>Roles</div>}
                                         </Link>
                                     </div>
@@ -184,19 +184,19 @@ function Nav({ element }) {
                             <div className={`bgdropdown ml-[-0.3rem] transition-all duration-300 ${toggle ? 'opacity-0 h-0' : 'opacity-100 h-auto'}`}>
                                 <div>
                                     <div className="w-full h-[2rem]">
-                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/add_Admin'} className={` ${location.pathname === '/admin/add_Admin' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}>
+                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/add_Admin'} className={` ${location.pathname === '/admin/add_Admin' && !toggle ? 'nav-link' : 'nav-link'}`}>
                                             {!toggle && <div style={{ cursor: "pointer" }} className={`pl-[3rem] pt-3 pb-3 nav-active ${location.pathname === '/admin/add_Admin' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}><i className="fa-solid fa-table-columns mx-3 fa-lg" style={{ color: "#4460EF" }}></i>Add Admin</div>}
                                         </Link>
                                     </div>
                                     <div className="mt-4 mb-3 h-[2rem]" style={{ width: "100%" }}>
 
-                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/update_Admin'} className={` ${location.pathname === '/admin/update_Admin' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}>
+                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/update_Admin'} className={` ${location.pathname === '/admin/update_Admin' && !toggle ? 'nav-link' : 'nav-link'}`}>
                                             {!toggle && <div style={{ cursor: "pointer" }} className={`pl-[3rem] pt-3 pb-3 nav-active ${location.pathname === '/admin/update_Admin' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}><i className="fa-solid fa-table-columns mx-3 fa-lg" style={{ color: "#4460EF" }}></i>Update Admin</div>}
                                         </Link>
                                     </div>
                                     <div className="mt-4 mb-3 h-[2rem]" style={{ width: "100%" }}>
 
-                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/all_Admin'} className={` ${location.pathname === '/admin/all_Admin' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}>
+                                        <Link style={{ color: "black", textDecoration: "none" }} to={'/admin/all_Admin'} className={` ${location.pathname === '/admin/all_Admin' && !toggle ? 'nav-link' : 'nav-link'}`}>
                                             {!toggle && <div style={{ cursor: "pointer" }} className={`pl-[3rem] pt-3 pb-3 nav-active ${location.pathname === '/admin/all_Admin' && !toggle ? 'nav-link dropactive' : 'nav-link'}`}><i className="fa-solid fa-table-columns mx-3 fa-lg" style={{ color: "#4460EF" }}></i>All Admin</div>}
                                         </Link>
                                     </div>
