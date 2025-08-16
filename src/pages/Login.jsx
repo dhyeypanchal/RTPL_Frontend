@@ -36,10 +36,11 @@ function Login() {
         password: logValue.password,
         emp_code: logValue.emp_code
       });
-      console.log(response.data.employeeDetails);
 
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("permissions", response.data.employeeDetails.permissions);
+      localStorage.setItem("token", response.data.data.token);
+      if (response?.data?.employeeDetails?.permissions) {
+        localStorage.setItem("permissions", response?.data?.data?.employeeDetails?.permissions);
+      }
       toast.success("Successfully Login");
       e.preventDefault();
       navigate("/admin/users/requests");

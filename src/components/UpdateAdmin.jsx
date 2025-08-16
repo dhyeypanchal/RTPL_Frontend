@@ -316,7 +316,6 @@ function UpdateAdmin() {
     //     SetValueForRole(e.target.value)
     // }
 
-    console.log(state?.data?.employeeDesignation.designation);
 
 
     const [selectedPermissions, setSelectedPermissions] = useState([]);
